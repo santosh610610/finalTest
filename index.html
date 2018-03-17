@@ -1,7 +1,6 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-
   <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
   <link rel="stylesheet" href="lib/onsenui/css/theme.css">
   <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.min.css">
@@ -11,26 +10,60 @@
 </head>
 <body>
 
-<!-- SIDE BAR MENU -->
+<!--
+<ons-navigator swipeable id="myNavigator" animation="slide" page="home.html">
+</ons-navigator>
+
+<template id="splitter.html">
+-->
+
 <ons-splitter>
   <ons-splitter-side id="menu" side="left" width="280px" collapse swipeable>
     <ons-page>
 	<img src="img/computer02.jpg">
       <ons-list>
         <ons-list-item onclick="fn.load('home.html')" tappable>
-          Home
+			Home
         </ons-list-item>
-         <ons-list-item onclick="fn.load('categories.html')" tappable>
-		  Categories
+        <ons-list-item onclick="fn.load('categories.html')" tappable>
+			Categories
         </ons-list-item>  
         <ons-list-item onclick="fn.load('add.html')" tappable>
-        Add item
+			Add item
         </ons-list-item>
+        <ons-list-item onclick="fn.load('addQuote.html')" tappable>
+			Add Quotes
+        </ons-list-item>			
       </ons-list>
     </ons-page>
   </ons-splitter-side>
   <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
 </ons-splitter>
+
+<!-- SIDE BAR MENU 
+<ons-page>
+<ons-splitter>
+<ons-splitter-side id="menu" swipeable width="280px" collapse>
+	<img src="img/computer02.jpg">
+      <ons-list>
+        <ons-list-item onclick="fn.load('home.html')" tappable>
+          Home
+        </ons-list-item>
+        <ons-list-item onclick="fn.load('categories.html')" tappable>
+		  Categories
+        </ons-list-item>  
+        <ons-list-item onclick="fn.load('add.html')" tappable>
+        Add item
+        </ons-list-item>
+        <ons-list-item onclick="fn.load('addQuote.html')" tappable>
+        Add Quotes
+        </ons-list-item>		
+      </ons-list>
+  </ons-splitter-side>
+  <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+</ons-splitter>
+</ons-page>
+-->
 
 
 <!-- HOME PAGE -->
@@ -46,30 +79,42 @@
           Quotes App
       </div>
     </ons-toolbar>
+	<ons-button id="push-button">Push page</ons-button>
 	
     <ons-list id="quoteCategory">
 		<ons-list-header>Categories</ons-list-header>
-	</ons-list>	
+	</ons-list>		
 	
-	
-    <ons-fab position="bottom right" onclick="fn.load('add.html')" >
+    <ons-fab position="bottom right" onclick="fn.load('addQuote.html')" >
         <ons-icon icon="md-plus"></ons-icon>
     </ons-fab>
 	
   </ons-page>
 </template>
 
+<template id="page2.html">
+  <ons-page id="page2">
+    <ons-toolbar>
+      <div class="left"><ons-back-button>Page 1</ons-back-button></div>
+      <div class="center"></div>
+    </ons-toolbar>
 
+    <p>This is the second page.</p>
+  </ons-page>
+</template>
 
 <!-- CATEGORIES PAGE -->
 <template id="categories.html">
 <ons-page id="categories">
     <ons-toolbar>
-      <div class="left">
+      
+	  <div class="left"><ons-back-button>Back</ons-back-button></div>
+		<!--
         <ons-toolbar-button onclick="fn.open()">
           <ons-icon icon="md-menu"></ons-icon>
         </ons-toolbar-button>
-      </div>
+		-->
+      
       <div class="center">
           Quotes Categories
       </div>
@@ -80,6 +125,7 @@
 
 
 <!-- CRAZY PAGE -->
+
 <template id="Crazy.html">
 <ons-page id="Crazy">
     <ons-toolbar>
@@ -154,6 +200,84 @@
     <div id="SpiritualCategory">
 	</div>		
 </ons-page>
+</template>
+
+<!-- ADD QUOTES PAGE -------------------------------------------------------------------->
+<template id="addQuote.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        Add Quote
+      </div>
+    </ons-toolbar>
+    
+	<div style="text-align: center; margin-top: 10px;">
+    <p>
+      <ons-input id="quote" modifier="underbar" placeholder="Quote" style="width:80%"></ons-input>
+    </p>
+
+	<p>
+      <ons-input id="author" modifier="underbar" placeholder="Author" style="width:80%"></ons-input>
+    </p>
+
+ <ons-list modifier="inset">
+    <ons-list-item tappable>
+      <label class="left">
+        <ons-radio name="theCategory" input-id="radio-1" checked  value="Crazy"></ons-radio>
+      </label>
+      <label for="radio-1" class="center">
+        Crazy
+      </label>
+    </ons-list-item>
+	
+    <ons-list-item tappable>
+      <label class="left">
+        <ons-radio name="theCategory" input-id="radio-2" value="Funny"></ons-radio>
+      </label>
+      <label for="radio-2" class="center">
+        Funny
+      </label>
+    </ons-list-item>
+	
+    <ons-list-item tappable>
+      <label class="left">
+        <ons-radio name="theCategory" input-id="radio-3" value="Romantic"></ons-radio>
+      </label>
+      <label for="radio-3" class="center">
+        Romantic
+      </label>
+    </ons-list-item>
+
+    <ons-list-item tappable>
+      <label class="left">
+        <ons-radio name="theCategory" input-id="radio-4" value="Spiritual"></ons-radio>
+      </label>
+      <label for="radio-4" class="center">
+        Spiritual
+      </label>
+    </ons-list-item>	
+  </ons-list>	
+	
+    <p style="margin-top: 30px;">
+      <ons-button id="submitBtn" onclick="addQuote(), myToast.toggle()">Add Quote</ons-button>
+    </p>
+  </div>
+
+    <ons-list id="QuoteList" modifier="inset">	</ons-list>  
+
+  
+	<ons-toast id="myToast" animation="ascend">
+		Quote Successfully Added!
+	  <button onclick="myToast.hide()">OK</button>
+	</ons-toast>	
+  </ons-page>
+
+
 </template>
 
 <!-- ADD PAGE -->
