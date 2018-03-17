@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/theme.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.min.css">
+</head>
+<body>
+
+</head>
+<body>
+
+<!-- SIDE BAR MENU -->
+<ons-splitter>
+  <ons-splitter-side id="menu" side="left" width="280px" collapse swipeable>
+    <ons-page>
+	<img src="img/computer02.jpg">
+      <ons-list>
+        <ons-list-item onclick="fn.load('home.html')" tappable>
+          Home
+        </ons-list-item>
+         <ons-list-item onclick="fn.load('categories.html')" tappable>
+		  Categories
+        </ons-list-item>  
+        <ons-list-item onclick="fn.load('add.html')" tappable>
+        Add item
+        </ons-list-item>
+      </ons-list>
+    </ons-page>
+  </ons-splitter-side>
+  <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+</ons-splitter>
+
+
+<!-- HOME PAGE -->
+<template id="home.html">
+  <ons-page id="home">
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+          Quotes App
+      </div>
+    </ons-toolbar>
+	
+    <ons-list id="quoteCategory">
+		<ons-list-header>Categories</ons-list-header>
+	</ons-list>	
+	
+	
+    <ons-fab position="bottom right" onclick="fn.load('add.html')" >
+        <ons-icon icon="md-plus"></ons-icon>
+    </ons-fab>
+	
+  </ons-page>
+</template>
+
+
+
+<!-- CATEGORIES PAGE -->
+<template id="categories.html">
+<ons-page id="categories">
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+          Quotes Categories
+      </div>
+    </ons-toolbar>
+	<br/>	
+</ons-page>
+</template>
+
+
+<!-- CRAZY PAGE -->
+<template id="Crazy.html">
+<ons-page id="Crazy">
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+          Crazy Quotes
+      </div>
+    </ons-toolbar>
+    <div id="CrazyCategory">
+	</div>		
+</ons-page>
+</template>
+
+<!-- FUNNY PAGE -->
+<template id="Funny.html">
+<ons-page id="Funny">
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+	<!--
+	  <div class="left">
+		<ons-back-button>Back</ons-back-button>
+	  </div>
+	-->
+      <div class="center">
+          Funny Quotes
+      </div>
+    </ons-toolbar>
+    <div id="FunnyCategory">
+	</div>		
+</ons-page>
+</template>
+
+<!-- ROMANTIC PAGE -->
+<template id="Romantic.html">
+<ons-page id="Romantic">
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+          Romantic Quotes
+      </div>
+    </ons-toolbar>
+    <div id="RomanticCategory">
+	</div>		
+</ons-page>
+</template>
+
+<!-- SPIRITUAL PAGE -->
+<template id="Spiritual.html">
+<ons-page id="Spiritual">
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+          Spiritual Quotes
+      </div>
+    </ons-toolbar>
+    <div id="SpiritualCategory">
+	</div>		
+</ons-page>
+</template>
+
+<!-- ADD PAGE -->
+<template id="add.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        Add item
+      </div>
+    </ons-toolbar>
+    
+	<div style="text-align: center; margin-top: 30px;">
+    <p>
+      <ons-input id="item" modifier="underbar" style="width:80%"></ons-input>
+    </p>
+
+    <p style="margin-top: 30px;">
+      <ons-button id="submitBtn" onclick="addItems()">Add Item</ons-button>
+    </p>
+  </div>
+
+    <ons-list id="shoppinglist2" modifier="inset">
+	</ons-list>    
+  </ons-page>
+</template>
+
+
+<!-- FIREBASE SCRIPT -->
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBXqSJ7BvJiB7t4u_1lfSnmgE01uOPqf0M",
+    authDomain: "fir-js-a492e.firebaseapp.com",
+    databaseURL: "https://fir-js-a492e.firebaseio.com",
+    projectId: "fir-js-a492e",
+    storageBucket: "fir-js-a492e.appspot.com",
+    messagingSenderId: "264520208954"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+<script src="lib/onsenui/js/onsenui.min.js"></script>
+<script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+<script src="lib/app.js"></script>
+    
+	
+</body>
+</html>

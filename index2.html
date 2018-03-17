@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.min.css">
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+  <script src="lib/app.js"></script>
+</head>
+<body>
+<ons-page id="helloworld-page">
+  <ons-splitter>
+  <ons-splitter-side id="menu" side="left" width="300px" collapse swipeable>
+    <ons-page>
+      <ons-list>
+        <ons-list-item onclick="fn.load('home.html')" tappable>
+          Home
+        </ons-list-item>
+        <ons-list-item onclick="fn.load('settings.html')" tappable>
+          Settings
+        </ons-list-item>
+        <ons-list-item onclick="fn.load('about.html')" tappable>
+          About
+        </ons-list-item>
+      </ons-list>
+    </ons-page>
+  </ons-splitter-side>
+  <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+</ons-splitter>
+
+<template id="home.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        Main
+      </div>
+    </ons-toolbar>
+	<ons-list>
+		<ons-list-header>Default</ons-list-header>
+		<ons-list-item>Item A</ons-list-item>
+		<ons-list-item>Item B</ons-list-item>
+
+		<ons-list-header>Tappable / Ripple</ons-list-header>
+		<ons-list-item tappable>Tap me</ons-list-item>
+
+		<ons-list-header>Chevron</ons-list-header>
+		<ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>	
+	</ons-list>
+	<ons-fab position="bottom right">
+		<ons-icon icon="md-plus"></ons-icon>
+	</ons-fab>
+  </ons-page>
+</template>
+
+<template id="settings.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        Settings
+      </div>
+    </ons-toolbar>
+  </ons-page>
+</template>
+
+<template id="about.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        About
+      </div>
+    </ons-toolbar>
+  </ons-page>
+</template>
+  
+
+</ons-page></body>
+</html>
